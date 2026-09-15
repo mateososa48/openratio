@@ -75,6 +75,27 @@ whole percents; consume is always the exact complement of create.
 - RESET snapshots today and shows UNDO for 8 s.
 - First launch opens the panel once (`settings.hasLaunchedBefore`).
 
+## Distribution
+
+- `make dmg` builds the styled disk image with **dmgbuild** (`pip3 install dmgbuild`), not Finder
+  scripting, so it works the same on a laptop and on a headless CI runner. Layout lives in
+  `scripts/dmg_settings.py`; the window is 660x420 with the app at (170,190) and the Applications
+  alias at (490,190).
+- `Resources/dmg/background.tiff` is committed. `make dmg` only regenerates it when it is missing,
+  so building the app does not require Pillow. Use `make dmg-background` after editing
+  `scripts/make_dmg_background.py`.
+- **The disk image background is light on purpose.** Finder paints icon labels in the system label
+  colour, which a background image cannot override, so on a dark ground "OpenRatio" and
+  "Applications" render near-black on near-black (measured 1.3:1). Known trade-off: in Dark Mode
+  those labels go light-on-light instead.
+- Homebrew tap lives in a separate repo, `mateososa48/homebrew-openratio`, because taps must be
+  named `homebrew-*`. The cask points at the GitHub release asset, so cutting a release means
+  bumping `version` and `sha256` in the cask too.
+- **Homebrew 6 removed `--no-quarantine`** and ignores it in `HOMEBREW_CASK_OPTS` (verified, not
+  assumed). The cask does not strip the attribute in a postflight; it prints the `xattr` command in
+  `caveats` and lets the user decide. Do not "fix" this by adding a postflight.
+- Only notarization removes the Gatekeeper dialog, and that needs a paid Apple Developer account.
+
 ## Gotchas
 
 - A full menu bar on a notched Mac makes macOS hide new items: their window is parked under the

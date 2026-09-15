@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { CopyCommand } from "@/components/copy-command";
 import { DownloadButton } from "@/components/download-button";
 import { Mark, Nav } from "@/components/nav";
 import { Panel } from "@/components/panel";
@@ -28,7 +29,7 @@ export default function Home() {
 function Hero() {
   return (
     <section className="mx-auto flex min-h-[calc(100dvh-34px)] max-w-[1240px] flex-col justify-center px-4 py-16 sm:px-6 lg:py-20">
-      <div className="grid items-center gap-14 lg:grid-cols-[minmax(0,1fr)_360px] lg:gap-20">
+      <div className="grid grid-cols-[minmax(0,1fr)] items-center gap-14 lg:grid-cols-[minmax(0,1fr)_360px] lg:gap-20">
         <div>
           <h1 className="text-[clamp(38px,7.4vw,74px)] leading-[0.98] font-bold tracking-[-0.045em]">
             CREATE MORE.
@@ -99,7 +100,7 @@ function HowItWorks() {
           THAT IS THE WHOLE INTERFACE.
         </h2>
 
-        <div className="mt-14 grid gap-14 lg:grid-cols-[minmax(0,1fr)_400px] lg:gap-20">
+        <div className="mt-14 grid grid-cols-[minmax(0,1fr)] gap-14 lg:grid-cols-[minmax(0,1fr)_400px] lg:gap-20">
           <ul>
             {BEHAVIOUR.map((item, i) => (
               <Reveal key={item.title} delay={i * 0.05}>
@@ -144,7 +145,7 @@ function Privacy() {
   return (
     <section className="rule-t">
       <div className="mx-auto max-w-[1240px] px-4 py-20 sm:px-6 lg:py-28">
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
+        <div className="grid grid-cols-[minmax(0,1fr)] gap-12 lg:grid-cols-2 lg:gap-20">
           <Reveal>
             <h2 className="text-[clamp(24px,3.6vw,38px)] leading-[1.06] font-bold tracking-[-0.03em]">
               NOTHING LEAVES
@@ -239,26 +240,29 @@ function States() {
 const STEPS = [
   {
     n: "1",
-    title: "DOWNLOAD AND UNZIP",
-    body: "Drag OpenRatio into your Applications folder. It is 468 KB and has no installer.",
+    title: "OPEN THE DISK IMAGE, DRAG OPENRATIO ACROSS",
+    body: "The window shows you exactly where it goes. No installer, nothing to configure.",
   },
   {
     n: "2",
-    title: "OPEN IT ONCE THE LONG WAY",
-    body: "OpenRatio is not notarized yet, so the first launch is blocked. Open System Settings, go to Privacy and Security, scroll to the bottom, and click Open Anyway. You only do this once.",
+    title: "CLEAR THE FIRST LAUNCH BLOCK",
+    body: "OpenRatio is not notarized, so macOS refuses to open it the first time. Open System Settings, go to Privacy and Security, scroll to the bottom, and click Open Anyway. You only do this once.",
   },
   {
     n: "3",
-    title: "ANSWER THE FIRST FEW APPS",
+    title: "ANSWER YOUR FIRST FEW APPS",
     body: "The panel opens itself on first launch. Give your three or four most-used apps an arrow and the menu bar starts keeping score.",
   },
 ];
+
+const BREW_INSTALL = "brew install --cask mateososa48/openratio/openratio";
+const BREW_UNBLOCK = "xattr -dr com.apple.quarantine /Applications/OpenRatio.app";
 
 function Install() {
   return (
     <section id="install" className="rule-t scroll-mt-[34px]">
       <div className="mx-auto max-w-[1240px] px-4 py-20 sm:px-6 lg:py-28">
-        <div className="grid gap-14 lg:grid-cols-[minmax(0,420px)_minmax(0,1fr)] lg:gap-20">
+        <div className="grid grid-cols-[minmax(0,1fr)] gap-14 lg:grid-cols-[minmax(0,420px)_minmax(0,1fr)] lg:gap-20">
           <div className="lg:sticky lg:top-[74px] lg:self-start">
             <h2 className="text-[clamp(24px,3.6vw,38px)] leading-[1.06] font-bold tracking-[-0.03em]">
               FREE, AND IT STAYS FREE.
@@ -274,7 +278,7 @@ function Install() {
               {[
                 ["REQUIRES", "macOS 13 Ventura or later"],
                 ["ARCHITECTURE", "Apple silicon and Intel"],
-                ["SIZE", "468 KB"],
+                ["DOWNLOAD", "519 KB disk image"],
                 ["LICENSE", "MIT"],
               ].map(([k, v]) => (
                 <div key={k} className="rule-b flex items-center justify-between gap-6" style={{ height: 44 }}>
@@ -285,21 +289,37 @@ function Install() {
             </dl>
           </div>
 
-          <ol>
-            {STEPS.map((step, i) => (
-              <Reveal key={step.n} delay={i * 0.05}>
-                <li className="rule-b grid grid-cols-[38px_minmax(0,1fr)] gap-5 py-7 first:pt-0">
-                  <span className="text-[var(--color-chalk-faint)] tabular-nums">{step.n}</span>
-                  <div>
-                    <h3 className="font-semibold tracking-label">{step.title}</h3>
-                    <p className="mt-3 max-w-[58ch] leading-[1.7] text-[var(--color-chalk-dim)]">
-                      {step.body}
-                    </p>
-                  </div>
-                </li>
-              </Reveal>
-            ))}
-          </ol>
+          <div>
+            <ol>
+              {STEPS.map((step, i) => (
+                <Reveal key={step.n} delay={i * 0.05}>
+                  <li className="rule-b grid grid-cols-[38px_minmax(0,1fr)] gap-5 py-7 first:pt-0">
+                    <span className="text-[var(--color-chalk-faint)] tabular-nums">{step.n}</span>
+                    <div>
+                      <h3 className="font-semibold tracking-label">{step.title}</h3>
+                      <p className="mt-3 max-w-[58ch] leading-[1.7] text-[var(--color-chalk-dim)]">
+                        {step.body}
+                      </p>
+                    </div>
+                  </li>
+                </Reveal>
+              ))}
+            </ol>
+
+            <Reveal delay={0.1}>
+              <div className="mt-12">
+                <h3 className="font-semibold tracking-label">OR USE HOMEBREW</h3>
+                <p className="mt-3 mb-5 max-w-[58ch] leading-[1.7] text-[var(--color-chalk-dim)]">
+                  You still have to clear the block, but the second command does it without
+                  a trip through System Settings.
+                </p>
+                <CopyCommand command={BREW_INSTALL} />
+                <div className="mt-3">
+                  <CopyCommand command={BREW_UNBLOCK} />
+                </div>
+              </div>
+            </Reveal>
+          </div>
         </div>
       </div>
     </section>
@@ -311,7 +331,7 @@ function Install() {
 const QA = [
   {
     q: "Why does macOS say it cannot check the app for malware?",
-    a: "Because it is not notarized. Notarizing needs a paid Apple Developer account, which this project does not have yet. The build is reproducible: the source and the workflow that produces the zip are both public, so you can build an identical app yourself.",
+    a: "Because it is not notarized. Notarizing needs a paid Apple Developer account, which this project does not have yet. Homebrew used to be able to skip the block, but that option was removed in Homebrew 6, so every install route hits it once. The source and the workflow that builds the app are both public, so you can compile it yourself and skip the warning entirely.",
   },
   {
     q: "What exactly gets recorded?",

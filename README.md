@@ -36,43 +36,35 @@ Landing page and downloads: **[openratio.app](https://openratio.app)** (source i
 
 ## Install
 
-OpenRatio isn't signed with an Apple Developer ID yet, so macOS will warn the first time.
+### Homebrew
 
-1. Download `OpenRatio.zip` from the [latest release](../../releases/latest) and unzip it.
-2. Move `OpenRatio.app` to `/Applications`.
-3. Right-click `OpenRatio.app` → **Open** → **Open**. (On macOS 15+, if that fails: open
-   *System Settings → Privacy & Security*, scroll down, and click **Open Anyway**.)
-4. When you first switch to a browser, macOS asks whether OpenRatio may control it. That's the
-   Apple Events permission OpenRatio uses to read the active tab's address. Say yes to track sites
-   separately; say no and the browser is tracked as one app.
+```sh
+brew install --cask mateososa48/openratio/openratio
+xattr -dr com.apple.quarantine /Applications/OpenRatio.app
+```
+
+### Disk image
+
+1. Download `OpenRatio-1.0.0.dmg` from the [latest release](../../releases/latest).
+2. Open it and drag OpenRatio across to Applications.
+3. The first launch is blocked. Open *System Settings*, go to *Privacy & Security*, scroll to the
+   bottom, and click **Open Anyway**. You only do this once.
+
+### Why the first launch is blocked
+
+OpenRatio is ad-hoc signed and not notarized, because notarizing requires a paid Apple Developer
+account. macOS blocks the first launch of any app in that state.
+
+Homebrew used to offer `--no-quarantine` for exactly this. That flag was removed in Homebrew 6 and
+the `HOMEBREW_CASK_OPTS` equivalent is ignored, so no install route avoids the block on its own.
+The cask deliberately does not strip the quarantine attribute behind your back; it prints the
+command instead. Building from source avoids the whole thing, since nothing is ever quarantined.
+
+When you first switch to a browser, macOS also asks whether OpenRatio may control it. That is the
+Apple Events permission used to read the active tab's address. Say yes to track sites separately;
+say no and the browser is tracked as one app.
 
 Requires macOS 13 Ventura or later. Apple silicon and Intel.
-
-**Menu bar full?** On MacBooks with a notch, macOS silently hides menu bar items it has no room
-for. OpenRatio detects this and tells you on first launch. Quit an app you don't need up there (or
-⌘-drag items to make room) and OpenRatio's `↑ 67/33` appears. Until then, opening OpenRatio from
-Spotlight or Launchpad shows the panel in the top-right corner.
-
-## Build from source
-
-You need Xcode 15+ and [XcodeGen](https://github.com/yonaskolb/XcodeGen) (`brew install xcodegen`).
-
-```bash
-make            # Release build → build/OpenRatio.app
-make run        # build and launch
-make test       # unit tests
-make release    # build/OpenRatio.zip
-make snapshots  # render every panel state to build/snapshots/*.png
-```
-
-If `xcode-select -p` points at the Command Line Tools but Xcode.app is installed, the Makefile
-sets `DEVELOPER_DIR` for you. To sign for distribution:
-
-```bash
-make release SIGNING_IDENTITY="Developer ID Application: Your Name (TEAMID)"
-```
-
-then notarize `build/OpenRatio.zip` with `xcrun notarytool`.
 
 ## The landing page
 
