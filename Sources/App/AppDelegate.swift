@@ -35,8 +35,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         statusItem.closePanel()
         NSApp.activate(ignoringOtherApps: true)
         let alert = NSAlert()
-        alert.messageText = "Split is running, but your menu bar is full"
-        alert.informativeText = "macOS hides menu bar items it has no room for, and Split's is one of them. Quit an app you don't need in the menu bar (or ⌘-drag items to make room) and Split will appear there as ↑ 67/33.\n\nUntil then, open Split from Spotlight or Launchpad to show this panel."
+        alert.messageText = "OpenRatio is running, but your menu bar is full"
+        alert.informativeText = "macOS hides menu bar items it has no room for, and OpenRatio's is one of them. Quit an app you don't need in the menu bar (or ⌘-drag items to make room) and OpenRatio will appear there as ↑ 67/33.\n\nUntil then, open OpenRatio from Spotlight or Launchpad to show this panel."
         alert.addButton(withTitle: "OK")
         alert.runModal()
     }
@@ -56,7 +56,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         let others = NSRunningApplication.runningApplications(withBundleIdentifier: id)
             .filter { $0.processIdentifier != ProcessInfo.processInfo.processIdentifier }
         if !others.isEmpty {
-            NSLog("Split is already running; exiting this instance.")
+            NSLog("OpenRatio is already running; exiting this instance.")
             exit(0)
         }
     }

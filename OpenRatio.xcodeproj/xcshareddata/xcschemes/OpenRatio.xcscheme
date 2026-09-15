@@ -15,10 +15,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0BB76617CB56D0A8897921DA"
-               BuildableName = "Split.app"
-               BlueprintName = "Split"
-               ReferencedContainer = "container:Split.xcodeproj">
+               BlueprintIdentifier = "2EAEDE70F55D8CB9BB24AA6E"
+               BuildableName = "OpenRatio.app"
+               BlueprintName = "OpenRatio"
+               ReferencedContainer = "container:OpenRatio.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "0BB76617CB56D0A8897921DA"
-            BuildableName = "Split.app"
-            BlueprintName = "Split"
-            ReferencedContainer = "container:Split.xcodeproj">
+            BlueprintIdentifier = "2EAEDE70F55D8CB9BB24AA6E"
+            BuildableName = "OpenRatio.app"
+            BlueprintName = "OpenRatio"
+            ReferencedContainer = "container:OpenRatio.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <Testables>
@@ -44,10 +44,10 @@
             parallelizable = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "45DE1FC3D768FB515011C349"
-               BuildableName = "SplitTests.xctest"
-               BlueprintName = "SplitTests"
-               ReferencedContainer = "container:Split.xcodeproj">
+               BlueprintIdentifier = "11B8443E14DDFF4F2DD8C3FE"
+               BuildableName = "OpenRatioTests.xctest"
+               BlueprintName = "OpenRatioTests"
+               ReferencedContainer = "container:OpenRatio.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -68,10 +68,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "0BB76617CB56D0A8897921DA"
-            BuildableName = "Split.app"
-            BlueprintName = "Split"
-            ReferencedContainer = "container:Split.xcodeproj">
+            BlueprintIdentifier = "2EAEDE70F55D8CB9BB24AA6E"
+            BuildableName = "OpenRatio.app"
+            BlueprintName = "OpenRatio"
+            ReferencedContainer = "container:OpenRatio.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <CommandLineArguments>
@@ -87,10 +87,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "0BB76617CB56D0A8897921DA"
-            BuildableName = "Split.app"
-            BlueprintName = "Split"
-            ReferencedContainer = "container:Split.xcodeproj">
+            BlueprintIdentifier = "2EAEDE70F55D8CB9BB24AA6E"
+            BuildableName = "OpenRatio.app"
+            BlueprintName = "OpenRatio"
+            ReferencedContainer = "container:OpenRatio.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <CommandLineArguments>

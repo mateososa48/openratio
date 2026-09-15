@@ -1,15 +1,15 @@
-# Split
+# OpenRatio
 
 **Create more. Consume less.** A free, open-source macOS menu bar app that tracks how much of
 your screen time goes to *creating* versus *consuming*, and shows the ratio in your menu bar.
 
 <p align="center">
-  <img src="docs/screenshots/dark-activity.png" width="360" alt="Split panel, dark">
+  <img src="docs/screenshots/dark-activity.png" width="360" alt="OpenRatio panel, dark">
   &nbsp;&nbsp;
-  <img src="docs/screenshots/light-activity.png" width="360" alt="Split panel, light">
+  <img src="docs/screenshots/light-activity.png" width="360" alt="OpenRatio panel, light">
 </p>
 
-Split watches which app (or which website, in your browser) is in front, and asks you one
+OpenRatio watches which app (or which website, in your browser) is in front, and asks you one
 question per app: is this **↑ create** or **↓ consume**? Answer once and it sticks. From then on
 your menu bar reads `↑ 67/33` while you're making things and `↓ 41/59` when the feed wins.
 
@@ -32,23 +32,25 @@ JSON file you can open, edit, or delete.
 The footer has pause, history, **RESET** (undo is offered for 8 seconds), **QUIT**, and a
 light/dark toggle. Right-click the menu bar item for *Launch at Login* and to reveal the data file.
 
+Landing page and downloads: **[openratio.app](https://openratio.app)** (source in [`site/`](site)).
+
 ## Install
 
-Split isn't signed with an Apple Developer ID yet, so macOS will warn the first time.
+OpenRatio isn't signed with an Apple Developer ID yet, so macOS will warn the first time.
 
-1. Download `Split.zip` from the [latest release](../../releases/latest) and unzip it.
-2. Move `Split.app` to `/Applications`.
-3. Right-click `Split.app` → **Open** → **Open**. (On macOS 15+, if that fails: open
+1. Download `OpenRatio.zip` from the [latest release](../../releases/latest) and unzip it.
+2. Move `OpenRatio.app` to `/Applications`.
+3. Right-click `OpenRatio.app` → **Open** → **Open**. (On macOS 15+, if that fails: open
    *System Settings → Privacy & Security*, scroll down, and click **Open Anyway**.)
-4. When you first switch to a browser, macOS asks whether Split may control it. That's the
-   Apple Events permission Split uses to read the active tab's address. Say yes to track sites
+4. When you first switch to a browser, macOS asks whether OpenRatio may control it. That's the
+   Apple Events permission OpenRatio uses to read the active tab's address. Say yes to track sites
    separately; say no and the browser is tracked as one app.
 
 Requires macOS 13 Ventura or later. Apple silicon and Intel.
 
 **Menu bar full?** On MacBooks with a notch, macOS silently hides menu bar items it has no room
-for. Split detects this and tells you on first launch. Quit an app you don't need up there (or
-⌘-drag items to make room) and Split's `↑ 67/33` appears. Until then, opening Split from
+for. OpenRatio detects this and tells you on first launch. Quit an app you don't need up there (or
+⌘-drag items to make room) and OpenRatio's `↑ 67/33` appears. Until then, opening OpenRatio from
 Spotlight or Launchpad shows the panel in the top-right corner.
 
 ## Build from source
@@ -56,10 +58,10 @@ Spotlight or Launchpad shows the panel in the top-right corner.
 You need Xcode 15+ and [XcodeGen](https://github.com/yonaskolb/XcodeGen) (`brew install xcodegen`).
 
 ```bash
-make            # Release build → build/Split.app
+make            # Release build → build/OpenRatio.app
 make run        # build and launch
 make test       # unit tests
-make release    # build/Split.zip
+make release    # build/OpenRatio.zip
 make snapshots  # render every panel state to build/snapshots/*.png
 ```
 
@@ -70,7 +72,18 @@ sets `DEVELOPER_DIR` for you. To sign for distribution:
 make release SIGNING_IDENTITY="Developer ID Application: Your Name (TEAMID)"
 ```
 
-then notarize `build/Split.zip` with `xcrun notarytool`.
+then notarize `build/OpenRatio.zip` with `xcrun notarytool`.
+
+## The landing page
+
+`site/` is a Next.js 16 app (App Router, React 19, Tailwind v4) deployed on Vercel. It embeds a
+working React replica of the panel so visitors can classify rows and watch the ratio move before
+downloading anything. The panel screenshots on the page are rendered by the app itself through
+`make snapshots`, so they can never drift from the product.
+
+```bash
+cd site && npm install && npm run dev
+```
 
 ## Architecture
 
@@ -89,7 +102,7 @@ Sources/
 Tests/         XCTest: ratio math, formatting, tracker behavior, persistence
 ```
 
-Data lives in `~/Library/Application Support/Split/data.json`:
+Data lives in `~/Library/Application Support/OpenRatio/data.json`:
 
 ```json
 {
@@ -107,7 +120,7 @@ classification applies to every day, past and future.
 The panel is 360×352 pt, SF Mono 12 pt, 44 pt rows, one-device-pixel rules. Colors are Apple's
 system green `#28cd41`, red `#ff3b30`, and orange `#ff9f0a` on `#0f0f0f` (dark) or `#f7f7f7`
 (light). The look and interaction model follow [Ratio](https://ratio.visualizevalue.com) by
-Visualize Value, whose demo is the reference this app was built against. Split is an independent
+Visualize Value, whose demo is the reference this app was built against. OpenRatio is an independent
 reimplementation and is not affiliated with Visualize Value.
 
 ## License

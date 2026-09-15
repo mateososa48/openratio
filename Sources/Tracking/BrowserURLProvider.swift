@@ -1,7 +1,7 @@
 import Foundation
 
 /// Asks a browser for its active tab's URL over Apple Events (the first call per browser triggers
-/// macOS's one-time "Split wants to control Safari" consent). Firefox has no scripting interface,
+/// macOS's one-time "OpenRatio wants to control Safari" consent). Firefox has no scripting interface,
 /// so it is tracked as an app. Nothing is stored except the host name.
 final class BrowserURLProvider {
     enum Kind { case safari, chromium }
@@ -32,7 +32,7 @@ final class BrowserURLProvider {
 
     private enum Outcome { case url(String?), denied, failed }
 
-    private let queue = DispatchQueue(label: "com.consumecreate.split.browser-url", qos: .utility)
+    private let queue = DispatchQueue(label: "com.openratio.app.browser-url", qos: .utility)
     private var scripts: [String: NSAppleScript] = [:]   // touched only on `queue`
     private var inFlight = false                          // touched only on main
     private var retryAfter: [String: Date] = [:]          // touched only on main

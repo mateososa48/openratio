@@ -1,12 +1,12 @@
-# Split — build helpers. Run `make` to build a Release .app into build/Split.app.
+# OpenRatio — build helpers. Run `make` to build a Release .app into build/OpenRatio.app.
 SHELL := /bin/bash
 .SHELLFLAGS := -o pipefail -c
 #
 # Works with either a selected Xcode or just Command Line Tools + Xcode.app in /Applications
 # (we point DEVELOPER_DIR at Xcode.app when xcode-select still points at the CLT).
 
-APP_NAME        := Split
-SCHEME          := Split
+APP_NAME        := OpenRatio
+SCHEME          := OpenRatio
 PROJECT         := $(APP_NAME).xcodeproj
 CONFIG          ?= Release
 BUILD_DIR       := build
@@ -27,7 +27,7 @@ XCB := xcodebuild -project $(PROJECT) -scheme $(SCHEME) -configuration $(CONFIG)
 
 all: app
 
-## Regenerate Split.xcodeproj from project.yml (needs `brew install xcodegen`).
+## Regenerate OpenRatio.xcodeproj from project.yml (needs `brew install xcodegen`).
 project:
 	xcodegen generate
 
@@ -38,7 +38,7 @@ build: $(PROJECT)
 	$(XCB) CODE_SIGN_IDENTITY="$(SIGNING_IDENTITY)" build | grep -E "error|warning: |BUILD" || true
 	@test -d "$(PRODUCT)" || (echo "Build failed — see full log with: $(XCB) build" && exit 1)
 
-## Copy the built app to build/Split.app
+## Copy the built app to build/OpenRatio.app
 app: build
 	rm -rf $(BUILD_DIR)/$(APP_NAME).app
 	cp -R "$(PRODUCT)" $(BUILD_DIR)/$(APP_NAME).app
@@ -54,7 +54,7 @@ open: run
 test: $(PROJECT)
 	$(XCB) CODE_SIGN_IDENTITY="-" test 2>&1 | grep -E "Test Suite|Test Case|error|passed|failed|BUILD" | tail -40
 
-## Zip for distribution (build/Split.zip). Set SIGNING_IDENTITY="Developer ID Application: ..." to sign for real.
+## Zip for distribution (build/OpenRatio.zip). Set SIGNING_IDENTITY="Developer ID Application: ..." to sign for real.
 release: app
 	rm -f $(BUILD_DIR)/$(APP_NAME).zip
 	ditto -c -k --keepParent $(BUILD_DIR)/$(APP_NAME).app $(BUILD_DIR)/$(APP_NAME).zip

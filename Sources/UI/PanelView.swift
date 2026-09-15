@@ -24,7 +24,7 @@ struct PanelRoot: View {
             .font(Metrics.font)
             .foregroundColor(theme.foreground)
             .accessibilityElement(children: .contain)
-            .accessibilityLabel("Split activity tracker")
+            .accessibilityLabel("OpenRatio activity tracker")
     }
 }
 
@@ -333,7 +333,7 @@ struct FooterView: View {
             FooterButton(action: { NSApp.terminate(nil) }) {
                 Text("QUIT")
             }
-            .accessibilityLabel("Quit Split")
+            .accessibilityLabel("Quit OpenRatio")
 
             FooterButton(width: 44, action: tracker.toggleTheme) {
                 LucideIcon(theme.isDark ? .sun : .moon)

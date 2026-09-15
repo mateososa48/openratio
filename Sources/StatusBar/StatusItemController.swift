@@ -17,12 +17,12 @@ final class StatusItemController: NSObject, NSMenuDelegate {
         panel = PanelController(tracker: tracker)
         super.init()
 
-        statusItem.autosaveName = "Split"
+        statusItem.autosaveName = "OpenRatio"
         if let button = statusItem.button {
             button.target = self
             button.action = #selector(handleClick)
             button.sendAction(on: [.leftMouseUp, .rightMouseUp])
-            button.setAccessibilityLabel("Split")
+            button.setAccessibilityLabel("OpenRatio")
         }
         tracker.onChange = { [weak self] in self?.refresh() }
         panel.onClose = { [weak self] in self?.statusItem.button?.highlight(false) }
@@ -88,11 +88,11 @@ final class StatusItemController: NSObject, NSMenuDelegate {
 
         menu.addItem(.separator())
 
-        let about = NSMenuItem(title: "About Split", action: #selector(showAbout), keyEquivalent: "")
+        let about = NSMenuItem(title: "About OpenRatio", action: #selector(showAbout), keyEquivalent: "")
         about.target = self
         menu.addItem(about)
 
-        let quit = NSMenuItem(title: "Quit Split", action: #selector(quit), keyEquivalent: "q")
+        let quit = NSMenuItem(title: "Quit OpenRatio", action: #selector(quit), keyEquivalent: "q")
         quit.target = self
         menu.addItem(quit)
 

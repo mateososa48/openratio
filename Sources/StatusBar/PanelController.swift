@@ -75,8 +75,8 @@ final class PanelController {
         let frame = NSRect(x: x, y: top - size.height, width: size.width, height: size.height)
 
         layout.caretX = min(max(anchor.midX - x, 16), size.width - 16)
-        if ProcessInfo.processInfo.environment["SPLIT_DEBUG"] != nil {
-            NSLog("Split panel: anchor=\(anchor) itemVisible=\(Self.visibleFrame(of: button) != nil) frame=\(frame) screen=\(bounds)")
+        if ProcessInfo.processInfo.environment["OPENRATIO_DEBUG"] != nil {
+            NSLog("OpenRatio panel: anchor=\(anchor) itemVisible=\(Self.visibleFrame(of: button) != nil) frame=\(frame) screen=\(bounds)")
         }
         window.setFrame(frame, display: true)
         window.makeKeyAndOrderFront(nil)

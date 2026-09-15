@@ -1,7 +1,7 @@
 # XcodeGen spec. Regenerate the .xcodeproj with `make project` (or `xcodegen generate`).
-name: Split
+name: OpenRatio
 options:
-  bundleIdPrefix: com.consumecreate
+  bundleIdPrefix: com.openratio
   deploymentTarget:
     macOS: "13.0"
   createIntermediateGroups: true
@@ -22,7 +22,7 @@ settings:
     SWIFT_TREAT_WARNINGS_AS_ERRORS: NO
 
 targets:
-  Split:
+  OpenRatio:
     type: application
     platform: macOS
     sources:
@@ -30,29 +30,29 @@ targets:
       - path: Resources
         excludes:
           - "Info.plist"
-          - "Split.entitlements"
+          - "OpenRatio.entitlements"
     entitlements:
-      path: Resources/Split.entitlements
+      path: Resources/OpenRatio.entitlements
     info:
       path: Resources/Info.plist
       properties:
-        CFBundleName: Split
-        CFBundleDisplayName: Split
+        CFBundleName: OpenRatio
+        CFBundleDisplayName: OpenRatio
         CFBundleShortVersionString: $(MARKETING_VERSION)
         CFBundleVersion: $(CURRENT_PROJECT_VERSION)
         CFBundlePackageType: APPL
         LSMinimumSystemVersion: $(MACOSX_DEPLOYMENT_TARGET)
         LSUIElement: true
         LSApplicationCategoryType: public.app-category.productivity
-        NSAppleEventsUsageDescription: Split reads the address of the active browser tab so websites are tracked separately from the browser itself. Nothing leaves your Mac.
+        NSAppleEventsUsageDescription: OpenRatio reads the address of the active browser tab so websites are tracked separately from the browser itself. Nothing leaves your Mac.
         NSHumanReadableCopyright: MIT License
         NSPrincipalClass: NSApplication
         NSSupportsAutomaticTermination: false
         NSSupportsSuddenTermination: false
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.consumecreate.split
-        PRODUCT_NAME: Split
+        PRODUCT_BUNDLE_IDENTIFIER: com.openratio.app
+        PRODUCT_NAME: OpenRatio
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
         ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: ""
         COMBINE_HIDPI_IMAGES: YES
@@ -61,19 +61,19 @@ targets:
         OTHER_SWIFT_FLAGS: "-Xfrontend -warn-long-function-bodies=300"
     scheme:
       testTargets:
-        - SplitTests
+        - OpenRatioTests
 
-  SplitTests:
+  OpenRatioTests:
     type: bundle.unit-test
     platform: macOS
     sources:
       - path: Tests
     dependencies:
-      - target: Split
+      - target: OpenRatio
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.consumecreate.split.tests
+        PRODUCT_BUNDLE_IDENTIFIER: com.openratio.app.tests
         GENERATE_INFOPLIST_FILE: YES
-        TEST_HOST: $(BUILT_PRODUCTS_DIR)/Split.app/Contents/MacOS/Split
+        TEST_HOST: $(BUILT_PRODUCTS_DIR)/OpenRatio.app/Contents/MacOS/OpenRatio
         BUNDLE_LOADER: $(TEST_HOST)
         CODE_SIGN_IDENTITY: "-"

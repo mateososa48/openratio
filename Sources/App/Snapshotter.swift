@@ -45,7 +45,7 @@ enum Snapshotter {
 
         func make(theme: Theme, configure: (Tracker) -> Void) -> Tracker {
             let dir = FileManager.default.temporaryDirectory
-                .appendingPathComponent("split-snapshots-\(UUID().uuidString)", isDirectory: true)
+                .appendingPathComponent("openratio-snapshots-\(UUID().uuidString)", isDirectory: true)
             let store = Store(directory: dir)
             store.update { $0.settings.theme = theme }
             let tracker = Tracker(store: store, source: StaticActivitySource(), away: StaticAwayDetector())
@@ -59,24 +59,24 @@ enum Snapshotter {
         }
         var today = DayRecord()
         for a in [
-            activity("stripe", "Stripe", 54, ago: 0),
-            activity("cursor", "Cursor", 180, ago: 60),
-            activity("web:x.com", "x.com", 90, ago: 120),
-            activity("youtube", "YouTube", 76, ago: 180),
-            activity("messages", "Messages", 47, ago: 240),
-            activity("terminal", "Terminal", 41, ago: 300),
-            activity("essay", "Essay", 24, ago: 360),
-            activity("web:github.com", "github.com", 18, ago: 420),
-            activity("notes", "Notes", 12, ago: 480),
+            activity("figma", "Figma", 8040, ago: 0),
+            activity("youtube", "youtube.com", 2900, ago: 60),
+            activity("slack", "Slack", 1810, ago: 120),
+            activity("terminal", "Terminal", 2480, ago: 180),
+            activity("reddit", "reddit.com", 570, ago: 240),
+            activity("obsidian", "Obsidian", 1855, ago: 300),
+            activity("hn", "news.ycombinator.com", 1405, ago: 360),
+            activity("spotify", "Spotify", 375, ago: 420),
         ] { today.activities[a.key] = a }
 
         let categories: [String: Category] = [
-            "cursor": .create, "web:x.com": .consume, "messages": .consume, "terminal": .create,
-            "essay": .create, "web:github.com": .create, "notes": .create, "past-create": .create, "past-consume": .consume,
+            "figma": .create, "terminal": .create, "obsidian": .create,
+            "youtube": .consume, "slack": .consume, "hn": .consume,
+            "past-create": .create, "past-consume": .consume,
         ]
 
         var past: [String: DayRecord] = [:]
-        for (daysAgo, create, consume) in [(1, 67.0, 33.0), (2, 58.0, 42.0), (3, 49.0, 51.0), (4, 42.0, 58.0)] {
+        for (daysAgo, create, consume) in [(1, 71.0, 29.0), (2, 64.0, 36.0), (3, 45.0, 55.0), (4, 58.0, 42.0)] {
             let key = Format.dayKey(now.addingTimeInterval(-Double(daysAgo) * 86_400))
             var record = DayRecord()
             record.activities["past-create"] = Activity(key: "past-create", name: "create", seconds: create * 60, lastUsed: nil)
@@ -88,26 +88,26 @@ enum Snapshotter {
             let prefix = theme == .dark ? "dark" : "light"
 
             result.append(("\(prefix)-activity", make(theme: theme) {
-                $0.applyState(today: today, categories: categories, currentKey: "stripe", pastDays: past)
+                $0.applyState(today: today, categories: categories, currentKey: "figma", pastDays: past)
             }))
             result.append(("\(prefix)-away", make(theme: theme) {
-                $0.applyState(today: today, categories: categories, currentKey: "stripe", isAway: true, pastDays: past)
+                $0.applyState(today: today, categories: categories, currentKey: "figma", isAway: true, pastDays: past)
             }))
             result.append(("\(prefix)-paused", make(theme: theme) {
-                $0.applyState(today: today, categories: categories, currentKey: "stripe", isPaused: true, pastDays: past)
+                $0.applyState(today: today, categories: categories, currentKey: "figma", isPaused: true, pastDays: past)
             }))
             result.append(("\(prefix)-pending", make(theme: theme) {
-                $0.applyState(today: today, categories: categories, currentKey: "stripe", pastDays: past)
+                $0.applyState(today: today, categories: categories, currentKey: "figma", pastDays: past)
                 $0.togglePendingOnly()
             }))
             result.append(("\(prefix)-history", make(theme: theme) {
-                $0.applyState(today: today, categories: categories, currentKey: "stripe", pastDays: past)
+                $0.applyState(today: today, categories: categories, currentKey: "figma", pastDays: past)
                 $0.toggleHistory()
             }))
             result.append(("\(prefix)-empty", make(theme: theme) {
                 var fresh = DayRecord()
-                fresh.activities["cursor"] = Activity(key: "cursor", name: "Cursor", seconds: 0, lastUsed: now)
-                $0.applyState(today: fresh, categories: ["cursor": .create], currentKey: "cursor", isAway: true)
+                fresh.activities["figma"] = Activity(key: "figma", name: "Figma", seconds: 0, lastUsed: now)
+                $0.applyState(today: fresh, categories: ["figma": .create], currentKey: "figma", isAway: true)
             }))
         }
         return result

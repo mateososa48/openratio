@@ -1,4 +1,4 @@
-# Split — project notes for AI assistants
+# OpenRatio — project notes for AI assistants
 
 Free, open-source macOS menu bar app: tracks create vs consume time and shows the ratio in the
 menu bar. A 1:1 reimplementation of the UI/UX of Ratio (ratio.visualizevalue.com), built from
@@ -6,15 +6,39 @@ measurements of that site's demo (its CSS and page source), not from its code.
 
 ## Commands
 
-- `make` — Release build to `build/Split.app`. Uses `DEVELOPER_DIR=/Applications/Xcode.app/...`
+- `make` — Release build to `build/OpenRatio.app`. Uses `DEVELOPER_DIR=/Applications/Xcode.app/...`
   automatically when `xcode-select` points at the Command Line Tools (this machine).
 - `make run` — kill running instance, build, launch.
-- `make test` — XCTest via `xcodebuild test` (16 tests in `Tests/SplitTests.swift`).
+- `make test` — XCTest via `xcodebuild test` (16 tests in `Tests/OpenRatioTests.swift`).
 - `make snapshots` — renders every panel state to `build/snapshots/*.png` with fixture data
-  (`Split --snapshot <dir>`). **Use this for visual QA**; it needs no screen-recording permission.
-- `make project` / `xcodegen generate` — regenerate `Split.xcodeproj` from `project.yml` after
+  (`OpenRatio --snapshot <dir>`). **Use this for visual QA**; it needs no screen-recording permission.
+- `make project` / `xcodegen generate` — regenerate `OpenRatio.xcodeproj` from `project.yml` after
   adding files. The `.xcodeproj` is committed so people without XcodeGen can build.
 - `python3 scripts/make_icon.py` — regenerate the app icon PNGs.
+
+## The landing page (`site/`)
+
+Next.js 16 + React 19 + Tailwind v4 (CSS-first `@theme` in `app/globals.css`), deployed on Vercel
+with root directory `site`. `npm run dev` from `site/`.
+
+- **Design tokens are copied from the app**, not invented: `app/globals.css` mirrors
+  `Sources/UI/Theme.swift`. If you change a color in the app, change it there too.
+- `components/panel.tsx` is a faithful React replica of the real panel, 360x352 on a 44px row.
+  `lib/ratio.ts` duplicates `Ratio.swift` and `Format.swift` arithmetic, including the rounding
+  (two decimals in the summary, whole percents in the menu bar, consume is the exact complement).
+- `lib/demo.ts` holds the demo rows. **These must stay in sync with the fixtures in
+  `Sources/App/Snapshotter.swift`**, because `site/public/shots/*.png` are rendered from the app
+  via `make snapshots`. If you change one, regenerate the other or the page contradicts itself.
+- State is shared between the fixed nav readout and the panel through a small zustand store
+  (`lib/store.ts`), which is what makes classifying a row move the menu bar number.
+- Third-party: `@kitlangton/rolling-number` (the animated ratio digits), `motion` (scroll reveals
+  and the ratio bar), `lucide-react` (same icon family the app draws). The FAQ uses native
+  `<details>` rather than a component library: it gets keyboard and screen reader behaviour for
+  free and suits the flat ruled surface.
+- **Never use an `rn-` prefixed class name.** Rolling Number owns that namespace and positions
+  `.rn-slot` absolutely; a collision throws the digits into the top-left corner of the page.
+- `public/OpenRatio.zip` is the actual shipped build. Refresh it with
+  `ditto -c -k --keepParent build/OpenRatio.app site/public/OpenRatio.zip` after changing the app.
 
 ## Layout
 
@@ -57,7 +81,7 @@ whole percents; consume is always the exact complement of create.
   notch or stacked on the clock's window. `PanelController.visibleFrame(of:)` detects both (aux
   areas + overlap with another process's status-bar-level window via `CGWindowListCopyWindowInfo`)
   and the panel then anchors to the top-right corner; `AppDelegate.warnIfItemHidden` explains it
-  once on first launch. `SPLIT_DEBUG=1 build/Split.app/Contents/MacOS/Split` logs the anchor math.
+  once on first launch. `OPENRATIO_DEBUG=1 build/OpenRatio.app/Contents/MacOS/OpenRatio` logs the anchor math.
 
 - Ad-hoc signing (`CODE_SIGN_IDENTITY=-`) means macOS re-prompts browser automation consent after
   each rebuild. Real releases need a Developer ID + notarization (`SIGNING_IDENTITY` in Makefile).
@@ -65,6 +89,6 @@ whole percents; consume is always the exact complement of create.
   required for browser URLs. Don't remove it.
 - The app is `LSUIElement`; there is no Dock icon and no main window. `About` activates the app
   temporarily.
-- Naming: "Split" is a working name chosen to avoid shipping under Visualize Value's "Ratio"
+- Naming: "OpenRatio" is a working name chosen to avoid shipping under Visualize Value's "Ratio"
   mark. Renaming touches `project.yml` (name, bundle id), `Store.defaultDirectory`, and strings in
   `StatusItemController`/`README`.

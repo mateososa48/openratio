@@ -1,0 +1,552 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		165F883DC9BA8EF31970AFAA /* Tracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25F4BABA876C57B6E009426 /* Tracker.swift */; };
+		3A95A84EC35AAEA4BEFCD148 /* BrowserURLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930756672EDBFDB055CA6B78 /* BrowserURLProvider.swift */; };
+		51582B065ECEB3A87C674AFA /* ActiveContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61E81557E2867EBB2C87379 /* ActiveContext.swift */; };
+		582B659009A92832DF6CD6E3 /* Snapshotter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563F982FC19A967B06A1B390 /* Snapshotter.swift */; };
+		5D86CBB61DAC5E3E361BC584 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F64B44A8DF9F578D1AA4DD /* Store.swift */; };
+		6261090E924FFCFE5614A5A5 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ADBAB15C40236C6C3FE6EA /* Theme.swift */; };
+		6663826158C35E97F5EA6A00 /* PanelShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24031EF6240E9678CE6782E /* PanelShape.swift */; };
+		66687051B43818BFB003AEC3 /* Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478252B8420E8CB36FC261C4 /* Format.swift */; };
+		69553EA3252AC2C23B3B60D9 /* IdleMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A9B5F9313B61A93318DFE6 /* IdleMonitor.swift */; };
+		81FACCE8BE0DBC129C29B996 /* StatusItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B250B5BB30B399B1A69BEF5 /* StatusItemController.swift */; };
+		86D5DE6D228646AFCDCA9C6C /* PanelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9DAE5DE628961774EAF1EF /* PanelController.swift */; };
+		8C86B9A9C6C256353E704EA1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814F82F6A9FF7DDD97388B70 /* AppDelegate.swift */; };
+		8E8FD6360ED6FEE0D8CC4E1A /* PanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E190FDC9C64092BD14E27C3 /* PanelView.swift */; };
+		907B93F1BE6A9D1780412096 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DBFDE0949207401516B447E /* main.swift */; };
+		BB2DE56076B22EEBCB655022 /* LaunchAtLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BA9AD907B240CE31854763 /* LaunchAtLogin.swift */; };
+		C2C640E059ECE10512C994FE /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBC44BB9F05F07F69F319FB /* Icons.swift */; };
+		C4170443F469BEAE423C0313 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911A66EB357301AB8F644812 /* Models.swift */; };
+		D05F84473129C24D57BC5AA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94D0A1873A506B72B3DB182C /* Assets.xcassets */; };
+		D7E3DF4AE2B368BCD2E8CC43 /* StaticSources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F3C859040F02D739D17E91 /* StaticSources.swift */; };
+		EB9E5D1B7BB2989C0170CFFF /* OpenRatioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9856968299CABF8AD52AB7DE /* OpenRatioTests.swift */; };
+		F17E7D3E078042DB27AC72BC /* Ratio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C66B0881A9798BECE001197 /* Ratio.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B44060747549095D483BD259 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CEFD6EB250F07B22BA4C1B2B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2EAEDE70F55D8CB9BB24AA6E;
+			remoteInfo = OpenRatio;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		05F3C859040F02D739D17E91 /* StaticSources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticSources.swift; sourceTree = "<group>"; };
+		0F9DAE5DE628961774EAF1EF /* PanelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelController.swift; sourceTree = "<group>"; };
+		102C441F7F51CDBFD99B25FF /* OpenRatioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OpenRatioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C66B0881A9798BECE001197 /* Ratio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ratio.swift; sourceTree = "<group>"; };
+		23BA9AD907B240CE31854763 /* LaunchAtLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchAtLogin.swift; sourceTree = "<group>"; };
+		2E190FDC9C64092BD14E27C3 /* PanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelView.swift; sourceTree = "<group>"; };
+		37DC8D19A6118C00A8742123 /* OpenRatio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenRatio.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		40ADBAB15C40236C6C3FE6EA /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		478252B8420E8CB36FC261C4 /* Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Format.swift; sourceTree = "<group>"; };
+		563F982FC19A967B06A1B390 /* Snapshotter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snapshotter.swift; sourceTree = "<group>"; };
+		57A9B5F9313B61A93318DFE6 /* IdleMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdleMonitor.swift; sourceTree = "<group>"; };
+		5DBFDE0949207401516B447E /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		814F82F6A9FF7DDD97388B70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8B250B5BB30B399B1A69BEF5 /* StatusItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusItemController.swift; sourceTree = "<group>"; };
+		8DBC44BB9F05F07F69F319FB /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
+		911A66EB357301AB8F644812 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		930756672EDBFDB055CA6B78 /* BrowserURLProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserURLProvider.swift; sourceTree = "<group>"; };
+		94D0A1873A506B72B3DB182C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9856968299CABF8AD52AB7DE /* OpenRatioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenRatioTests.swift; sourceTree = "<group>"; };
+		A24031EF6240E9678CE6782E /* PanelShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelShape.swift; sourceTree = "<group>"; };
+		E61E81557E2867EBB2C87379 /* ActiveContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveContext.swift; sourceTree = "<group>"; };
+		F25F4BABA876C57B6E009426 /* Tracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tracker.swift; sourceTree = "<group>"; };
+		F4F64B44A8DF9F578D1AA4DD /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		1291DAD147673D48AADE1983 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				92B1079E13BF7472A4E5BF75 /* App */,
+				B9CBAAD4308EF8071772D8B3 /* Model */,
+				9E84FBD0E0B435CA513FB788 /* StatusBar */,
+				4C2A282CFAB926080430F86C /* Tracking */,
+				B5C5D0B419C0CA42D0D8EE53 /* UI */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		3C5B977F99B117CB500492CB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				94D0A1873A506B72B3DB182C /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		4C2A282CFAB926080430F86C /* Tracking */ = {
+			isa = PBXGroup;
+			children = (
+				E61E81557E2867EBB2C87379 /* ActiveContext.swift */,
+				930756672EDBFDB055CA6B78 /* BrowserURLProvider.swift */,
+				57A9B5F9313B61A93318DFE6 /* IdleMonitor.swift */,
+				23BA9AD907B240CE31854763 /* LaunchAtLogin.swift */,
+				05F3C859040F02D739D17E91 /* StaticSources.swift */,
+				F25F4BABA876C57B6E009426 /* Tracker.swift */,
+			);
+			path = Tracking;
+			sourceTree = "<group>";
+		};
+		51DD88A442C063A012ECA9A9 = {
+			isa = PBXGroup;
+			children = (
+				3C5B977F99B117CB500492CB /* Resources */,
+				1291DAD147673D48AADE1983 /* Sources */,
+				B26939B713030B2202AFF073 /* Tests */,
+				9D066561A5AD8FE5A3C9BD3B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		92B1079E13BF7472A4E5BF75 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				814F82F6A9FF7DDD97388B70 /* AppDelegate.swift */,
+				5DBFDE0949207401516B447E /* main.swift */,
+				563F982FC19A967B06A1B390 /* Snapshotter.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		9D066561A5AD8FE5A3C9BD3B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				37DC8D19A6118C00A8742123 /* OpenRatio.app */,
+				102C441F7F51CDBFD99B25FF /* OpenRatioTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9E84FBD0E0B435CA513FB788 /* StatusBar */ = {
+			isa = PBXGroup;
+			children = (
+				0F9DAE5DE628961774EAF1EF /* PanelController.swift */,
+				8B250B5BB30B399B1A69BEF5 /* StatusItemController.swift */,
+			);
+			path = StatusBar;
+			sourceTree = "<group>";
+		};
+		B26939B713030B2202AFF073 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				9856968299CABF8AD52AB7DE /* OpenRatioTests.swift */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		B5C5D0B419C0CA42D0D8EE53 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				8DBC44BB9F05F07F69F319FB /* Icons.swift */,
+				A24031EF6240E9678CE6782E /* PanelShape.swift */,
+				2E190FDC9C64092BD14E27C3 /* PanelView.swift */,
+				40ADBAB15C40236C6C3FE6EA /* Theme.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		B9CBAAD4308EF8071772D8B3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				478252B8420E8CB36FC261C4 /* Format.swift */,
+				911A66EB357301AB8F644812 /* Models.swift */,
+				1C66B0881A9798BECE001197 /* Ratio.swift */,
+				F4F64B44A8DF9F578D1AA4DD /* Store.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		11B8443E14DDFF4F2DD8C3FE /* OpenRatioTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F1D67588F46914C7B2033DF2 /* Build configuration list for PBXNativeTarget "OpenRatioTests" */;
+			buildPhases = (
+				8BA85A1B89FFCC31E60D88E7 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				14A128581DC2E27F63DD929A /* PBXTargetDependency */,
+			);
+			name = OpenRatioTests;
+			packageProductDependencies = (
+			);
+			productName = OpenRatioTests;
+			productReference = 102C441F7F51CDBFD99B25FF /* OpenRatioTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		2EAEDE70F55D8CB9BB24AA6E /* OpenRatio */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 54928116D03CF7B241C7BFF6 /* Build configuration list for PBXNativeTarget "OpenRatio" */;
+			buildPhases = (
+				FC4B54C23BF59F367F7FAC1E /* Sources */,
+				B8F3A24CBD61154DDFFB84EC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OpenRatio;
+			packageProductDependencies = (
+			);
+			productName = OpenRatio;
+			productReference = 37DC8D19A6118C00A8742123 /* OpenRatio.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CEFD6EB250F07B22BA4C1B2B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					11B8443E14DDFF4F2DD8C3FE = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Manual;
+					};
+					2EAEDE70F55D8CB9BB24AA6E = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Manual;
+					};
+				};
+			};
+			buildConfigurationList = 1573F88C5E121B9F88D3A4C1 /* Build configuration list for PBXProject "OpenRatio" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 51DD88A442C063A012ECA9A9;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 9D066561A5AD8FE5A3C9BD3B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2EAEDE70F55D8CB9BB24AA6E /* OpenRatio */,
+				11B8443E14DDFF4F2DD8C3FE /* OpenRatioTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B8F3A24CBD61154DDFFB84EC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D05F84473129C24D57BC5AA6 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8BA85A1B89FFCC31E60D88E7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB9E5D1B7BB2989C0170CFFF /* OpenRatioTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FC4B54C23BF59F367F7FAC1E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				51582B065ECEB3A87C674AFA /* ActiveContext.swift in Sources */,
+				8C86B9A9C6C256353E704EA1 /* AppDelegate.swift in Sources */,
+				3A95A84EC35AAEA4BEFCD148 /* BrowserURLProvider.swift in Sources */,
+				66687051B43818BFB003AEC3 /* Format.swift in Sources */,
+				C2C640E059ECE10512C994FE /* Icons.swift in Sources */,
+				69553EA3252AC2C23B3B60D9 /* IdleMonitor.swift in Sources */,
+				BB2DE56076B22EEBCB655022 /* LaunchAtLogin.swift in Sources */,
+				C4170443F469BEAE423C0313 /* Models.swift in Sources */,
+				86D5DE6D228646AFCDCA9C6C /* PanelController.swift in Sources */,
+				6663826158C35E97F5EA6A00 /* PanelShape.swift in Sources */,
+				8E8FD6360ED6FEE0D8CC4E1A /* PanelView.swift in Sources */,
+				F17E7D3E078042DB27AC72BC /* Ratio.swift in Sources */,
+				582B659009A92832DF6CD6E3 /* Snapshotter.swift in Sources */,
+				D7E3DF4AE2B368BCD2E8CC43 /* StaticSources.swift in Sources */,
+				81FACCE8BE0DBC129C29B996 /* StatusItemController.swift in Sources */,
+				5D86CBB61DAC5E3E361BC584 /* Store.swift in Sources */,
+				6261090E924FFCFE5614A5A5 /* Theme.swift in Sources */,
+				165F883DC9BA8EF31970AFAA /* Tracker.swift in Sources */,
+				907B93F1BE6A9D1780412096 /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		14A128581DC2E27F63DD929A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2EAEDE70F55D8CB9BB24AA6E /* OpenRatio */;
+			targetProxy = B44060747549095D483BD259 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		008F238FA7A5775744B92E42 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.openratio.app.tests;
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OpenRatio.app/Contents/MacOS/OpenRatio";
+			};
+			name = Release;
+		};
+		1AC12FDB3B64596CE9A746B3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_TREAT_WARNINGS_AS_ERRORS = NO;
+				SWIFT_VERSION = 5.9;
+			};
+			name = Debug;
+		};
+		2878DC0C8E337CFC4FFB975E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.openratio.app.tests;
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OpenRatio.app/Contents/MacOS/OpenRatio";
+			};
+			name = Debug;
+		};
+		464281940C81CCE23293C6D4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_TREAT_WARNINGS_AS_ERRORS = NO;
+				SWIFT_VERSION = 5.9;
+			};
+			name = Release;
+		};
+		576F89CA5C1B34D7F750D387 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = "";
+				CODE_SIGN_ENTITLEMENTS = Resources/OpenRatio.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				INFOPLIST_FILE = Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				OTHER_SWIFT_FLAGS = "-Xfrontend -warn-long-function-bodies=300";
+				PRODUCT_BUNDLE_IDENTIFIER = com.openratio.app;
+				PRODUCT_NAME = OpenRatio;
+				SDKROOT = macosx;
+				SWIFT_STRICT_CONCURRENCY = minimal;
+			};
+			name = Debug;
+		};
+		DCEFD770D46F8AA7D6864FB3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = "";
+				CODE_SIGN_ENTITLEMENTS = Resources/OpenRatio.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				INFOPLIST_FILE = Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				OTHER_SWIFT_FLAGS = "-Xfrontend -warn-long-function-bodies=300";
+				PRODUCT_BUNDLE_IDENTIFIER = com.openratio.app;
+				PRODUCT_NAME = OpenRatio;
+				SDKROOT = macosx;
+				SWIFT_STRICT_CONCURRENCY = minimal;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1573F88C5E121B9F88D3A4C1 /* Build configuration list for PBXProject "OpenRatio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1AC12FDB3B64596CE9A746B3 /* Debug */,
+				464281940C81CCE23293C6D4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		54928116D03CF7B241C7BFF6 /* Build configuration list for PBXNativeTarget "OpenRatio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				576F89CA5C1B34D7F750D387 /* Debug */,
+				DCEFD770D46F8AA7D6864FB3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		F1D67588F46914C7B2033DF2 /* Build configuration list for PBXNativeTarget "OpenRatioTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2878DC0C8E337CFC4FFB975E /* Debug */,
+				008F238FA7A5775744B92E42 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CEFD6EB250F07B22BA4C1B2B /* Project object */;
+}

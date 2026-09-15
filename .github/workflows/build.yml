@@ -19,11 +19,11 @@ jobs:
         run: make release
       - uses: actions/upload-artifact@v4
         with:
-          name: Split
-          path: build/Split.zip
+          name: OpenRatio
+          path: build/OpenRatio.zip
       - name: Publish GitHub release
         if: startsWith(github.ref, 'refs/tags/v')
         uses: softprops/action-gh-release@v2
         with:
-          files: build/Split.zip
+          files: build/OpenRatio.zip
           generate_release_notes: true

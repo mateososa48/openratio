@@ -1,5 +1,5 @@
 import XCTest
-@testable import Split
+@testable import OpenRatio
 
 final class RatioTests: XCTestCase {
     func testPercentagesMatchReferenceRounding() {
@@ -64,7 +64,7 @@ final class TrackerTests: XCTestCase {
     private var clock: Date!
 
     override func setUp() {
-        dir = FileManager.default.temporaryDirectory.appendingPathComponent("split-tests-\(UUID().uuidString)")
+        dir = FileManager.default.temporaryDirectory.appendingPathComponent("openratio-tests-\(UUID().uuidString)")
         store = Store(directory: dir)
         source = StaticActivitySource(ResolvedActivity(key: "cursor", name: "Cursor"))
         away = StaticAwayDetector()

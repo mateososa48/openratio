@@ -1,6 +1,6 @@
 import Foundation
 
-/// JSON persistence in ~/Library/Application Support/Split/data.json.
+/// JSON persistence in ~/Library/Application Support/OpenRatio/data.json.
 /// Writes are atomic; a file that fails to decode is moved aside, never overwritten.
 final class Store {
     private(set) var data: StoreData
@@ -10,7 +10,7 @@ final class Store {
     static func defaultDirectory() -> URL {
         let base = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first
             ?? URL(fileURLWithPath: NSHomeDirectory()).appendingPathComponent("Library/Application Support")
-        return base.appendingPathComponent("Split", isDirectory: true)
+        return base.appendingPathComponent("OpenRatio", isDirectory: true)
     }
 
     init(directory: URL = Store.defaultDirectory()) {
@@ -36,7 +36,7 @@ final class Store {
             try encoder.encode(data).write(to: fileURL, options: .atomic)
             dirty = false
         } catch {
-            NSLog("Split: failed to save \(fileURL.lastPathComponent): \(error)")
+            NSLog("OpenRatio: failed to save \(fileURL.lastPathComponent): \(error)")
         }
     }
 
@@ -50,7 +50,7 @@ final class Store {
         let backup = url.deletingPathExtension()
             .appendingPathExtension("corrupt-\(Int(Date().timeIntervalSince1970)).json")
         try? FileManager.default.moveItem(at: url, to: backup)
-        NSLog("Split: could not read data.json, moved it to \(backup.lastPathComponent) and started fresh")
+        NSLog("OpenRatio: could not read data.json, moved it to \(backup.lastPathComponent) and started fresh")
         return StoreData()
     }
 }

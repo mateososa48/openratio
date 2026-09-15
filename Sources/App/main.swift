@@ -1,6 +1,6 @@
 import AppKit
 
-// `Split --snapshot <dir>` renders every panel state to PNG and exits. Used for the README
+// `OpenRatio --snapshot <dir>` renders every panel state to PNG and exits. Used for the README
 // and for visual QA without needing screen-recording permission.
 if let index = CommandLine.arguments.firstIndex(of: "--snapshot"), index + 1 < CommandLine.arguments.count {
     _ = NSApplication.shared
