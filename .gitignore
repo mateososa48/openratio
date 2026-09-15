@@ -1,0 +1,17 @@
+# Xcode / SwiftPM
+build/
+DerivedData/
+*.xcuserstate
+xcuserdata/
+*.xcworkspace/xcuserdata/
+.build/
+.swiftpm/
+*.dSYM
+*.dSYM.zip
+
+# macOS
+.DS_Store
+
+# Env
+.env
+.env.*
