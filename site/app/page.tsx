@@ -269,7 +269,7 @@ function Install() {
             </h2>
             <p className="mt-6 max-w-[42ch] leading-[1.7] text-[var(--color-chalk-dim)]">
               MIT licensed. No trial, no upgrade, no account. Build it yourself from source if you
-              would rather not trust a zip.
+              would rather not trust a download.
             </p>
             <div className="mt-8">
               <DownloadButton />
