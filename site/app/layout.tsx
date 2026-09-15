@@ -15,7 +15,9 @@ const fallbackMono = JetBrains_Mono({
   display: "swap",
 });
 
-const SITE = "https://openratio.app";
+// Social cards need an absolute origin. Override with NEXT_PUBLIC_SITE_URL if a
+// custom domain gets pointed at this project later.
+const SITE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://openratio.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE),
