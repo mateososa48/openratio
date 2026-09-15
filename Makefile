@@ -23,7 +23,12 @@ endif
 
 XCB := xcodebuild -project $(PROJECT) -scheme $(SCHEME) -configuration $(CONFIG) -derivedDataPath $(DERIVED)
 
-.PHONY: all project build app run test clean release open
+# Resources/Info.plist holds $(MARKETING_VERSION) unsubstituted, so read the real
+# value from the project spec, which is where it is actually defined.
+VERSION := $(shell awk -F'"' '/MARKETING_VERSION:/{print $$2; exit}' project.yml)
+DMG := $(BUILD_DIR)/$(APP_NAME)-$(VERSION).dmg
+
+.PHONY: all project build app run test clean release open dmg dmg-background dist
 
 all: app
 
@@ -59,6 +64,27 @@ release: app
 	rm -f $(BUILD_DIR)/$(APP_NAME).zip
 	ditto -c -k --keepParent $(BUILD_DIR)/$(APP_NAME).app $(BUILD_DIR)/$(APP_NAME).zip
 	@echo "→ $(BUILD_DIR)/$(APP_NAME).zip"
+
+## Styled disk image with the drag-to-Applications window (build/OpenRatio-VERSION.dmg).
+## Needs `pip3 install dmgbuild` (no Finder scripting, so it also works in CI).
+dmg: app
+	@command -v dmgbuild >/dev/null 2>&1 || { echo "dmgbuild not found. Run: pip3 install dmgbuild"; exit 1; }
+	@test -f Resources/dmg/background.tiff || $(MAKE) dmg-background
+	rm -f "$(DMG)"
+	dmgbuild -s scripts/dmg_settings.py -D app=$(BUILD_DIR)/$(APP_NAME).app -D root="$(CURDIR)" \
+		"$(APP_NAME) $(VERSION)" "$(DMG)"
+	@echo "→ $(DMG)"
+	@shasum -a 256 "$(DMG)"
+
+## Redraw the disk image background (committed, so this is only needed after
+## editing scripts/make_dmg_background.py). Needs `pip3 install Pillow`.
+dmg-background:
+	python3 scripts/make_dmg_background.py
+
+## Everything a release needs: the disk image, the zip, and their checksums.
+dist: dmg release
+	@echo
+	@shasum -a 256 $(DMG) $(BUILD_DIR)/$(APP_NAME).zip
 
 ## Render every panel state to PNGs in build/snapshots (used for README + visual QA)
 snapshots: app
